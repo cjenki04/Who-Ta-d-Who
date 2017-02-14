@@ -1,0 +1,115 @@
+#include <iostream>
+#include <queue>
+
+#include "graph.h"
+using namespace std;
+
+
+Graph::Graph()
+{
+        allocateArrays();
+        node_count = 0;
+        //
+        // Initialize for empty graph
+        //
+        for (int i = 0; i < node_count; ++i) {
+                for (int j = 0; j < node_count; ++j) {
+                        adjacencyMatrix[i][j] = false;
+                }
+                markedVertices[i] = false;
+        }
+}
+Graph::Graph(int nodes)
+{
+        allocateArrays();
+        node_count = nodes;
+        //
+        // Initialize for empty graph
+        //
+        for (int i = 0; i < node_count; ++i) {
+                for (int j = 0; j < node_count; ++j) {
+                        adjacencyMatrix[i][j] = false;
+                }
+                markedVertices[i] = false;
+        }
+}
+void Graph::allocateArrays()
+{
+        adjacencyMatrix = new bool * [node_count];
+        markedVertices  = new bool   [node_count];
+
+        for (int i = 0; i < node_count; ++i)
+                adjacencyMatrix[i] = new bool [node_count];
+}
+Graph::~Graph()
+{
+        // STUB
+}
+bool Graph::createEdge(int v1, int v2)
+{
+        if (v1 >=0 and v1 <= node_count and v2 >= 0 and v2 <= node_count) {
+                adjacencyMatrix[v1][v2] = true;
+                adjacencyMatrix[v2][v1] = true;
+                return true;
+        } else {
+                return false;
+        }
+}
+bool Graph::isAdjacent(int v1, int v2)
+{
+        return adjacencyMatrix[v1][v2];
+}
+bool Graph::markVertex(int v)
+{
+        if (v >= 0 and v <= node_count) {
+                markedVertices[v] = true;
+                return true;
+        }
+        return false;
+}
+bool Graph::isMarked(int v)
+{
+        return markedVertices[v];
+}
+void Graph::unmarkAll()
+{
+        for (int i = 0; i < node_count; ++i)
+                markedVertices[i] = false;
+}
+
+
+/*
+ * BREADTH FIRST SEARCH
+ */
+void Graph::BFS()
+{	unmarkAll();
+	queue<int> q; 
+	int start = 0;;
+	markVertex(start);
+	cout << start << " ";
+	q.push(start);
+	while (!q.empty()){
+		int current = q.front();
+		q.pop();
+		for (int i = 0 ; i < node_count ; i++){
+			if ((isMarked(i) == false) and 
+			    (isAdjacent(current, i))){
+				    markVertex(i);
+				    cout << i << " " ;
+				    q.push(i);
+			    }
+		}
+	}	    	
+}
+
+
+
+
+
+
+
+
+
+
+
+

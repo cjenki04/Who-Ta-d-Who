@@ -1,0 +1,445 @@
+Hello, cjenki04. Your last provide for hw6:
+
+cjenki04.1.log
+cjenki04.2.log
+cjenki04.3.log
+file name:/comp/15/grading/hw6/cjenki04.3.log
+provide started by cjenki04 on Sat Apr 23 18:32:00 2016
+Hello, cjenki04<Conor Q. Jenkinson>!
+Receiving solution to 'hw6' in class 'comp15'.
+Checking all files:
+    main.cpp (15939 bytes)
+    Makefile (456 bytes)
+    ReadMe.md (1854 bytes)
+    hashfunc.cpp (35463 bytes)
+    hashfunc.h (189 bytes)
+    Class.h (994 bytes)
+    Class.cpp (2042 bytes)
+    Student.h (1377 bytes)
+    Student.cpp (3605 bytes)
+    Graph.h (851 bytes)
+    Graph.cpp (3217 bytes)
+Total size of files is 65987 bytes.
+This is submission 3 of assignment hw6 in class 'comp15'.
+
+Are you ready to provide these for testing (yes or no)? 
+    copying file 'main.cpp'
+    copying file 'Makefile'
+    copying file 'ReadMe.md'
+    copying file 'hashfunc.cpp'
+    copying file 'hashfunc.h'
+    copying file 'Class.h'
+    copying file 'Class.cpp'
+    copying file 'Student.h'
+    copying file 'Student.cpp'
+    copying file 'Graph.h'
+    copying file 'Graph.cpp'
+Preparing for testing...
+
+//@@ ======== SUBMISSION SCREENING START ========
+//@@ cjenki04 submitting from /dev/pts/59 on dell24
+//@@                       at 2016-04-23 18:32:03
+
+2 : Checking for valid userid...
+
+
+
+
+
+This is submission 3.
+Your maximum number of submissions for hw6 is 10.
+
+
+Your homework is on time. Nice work.
+
+  8: Checking required files
+     OK        ReadMe.md
+     OK        Makefile
+
+  9: Checking if files are correct type
+     OK        Class.cpp
+     OK        Graph.cpp
+     OK        Student.cpp
+     OK        hashfunc.cpp
+     OK        main.cpp
+
+
+Checking Files...
+Making program via Makefile
+No errors!
+No warnings!
+
+"Running tests. This might take a while. Please be patient..."
+
+********** Testing ./hw6degrees with empty_ls_test **********
+# "ls" on empty files
+empty_ls_test Passed!
+********** Done Testing ./hw6degrees with empty_ls_test **********
+
+
+********** Testing ./hw6degrees with empty_paths_test **********
+# "paths abc123 def456" on empty files
+empty_paths_test Passed!
+********** Done Testing ./hw6degrees with empty_paths_test **********
+
+
+********** Testing ./hw6degrees with empty_short_test **********
+# "shortestpath abc123 def456" on empty files
+empty_short_test Passed!
+********** Done Testing ./hw6degrees with empty_short_test **********
+
+
+********** Testing ./hw6degrees with small_lc_test **********
+# "lc" on small files
+small_lc_test Passed!
+********** Done Testing ./hw6degrees with small_lc_test **********
+
+
+********** Valgrind test of hw6degrees-with-small_lc_test **********
+Running valgrind to check for memory leaks.
+No memory leaks!
+********** Done Valgrind test of hw6degrees-with-small_lc_test **********
+
+
+********** Testing ./hw6degrees with small_ls_test **********
+# "ls" on small files
+small_ls_test Passed!
+********** Done Testing ./hw6degrees with small_ls_test **********
+
+
+********** Valgrind test of hw6degrees-with-small_ls_test **********
+Running valgrind to check for memory leaks.
+No memory leaks!
+********** Done Valgrind test of hw6degrees-with-small_ls_test **********
+
+
+********** Testing ./hw6degrees with small_paths_test **********
+# "paths Brad.Pitt Tom.Cruise" on small files (output is sorted)
+small_paths_test Passed!
+********** Done Testing ./hw6degrees with small_paths_test **********
+
+
+********** Valgrind test of hw6degrees-with-small_paths_test **********
+Running valgrind to check for memory leaks.
+No memory leaks!
+********** Done Valgrind test of hw6degrees-with-small_paths_test **********
+
+
+********** Testing ./hw6degrees with small_short_test **********
+# "shortestpath Brad.Pitt Tom.Cruise" on small files
+small_short_test Passed!
+********** Done Testing ./hw6degrees with small_short_test **********
+
+
+********** Valgrind test of hw6degrees-with-small_short_test **********
+Running valgrind to check for memory leaks.
+No memory leaks!
+********** Done Valgrind test of hw6degrees-with-small_short_test **********
+
+
+********** Testing ./hw6degrees with small_short_test2 **********
+# "shortestpath Meryl.Streep Brad.Pitt" on small files
+small_short_test2 Passed!
+********** Done Testing ./hw6degrees with small_short_test2 **********
+
+
+********** Valgrind test of hw6degrees-with-small_short_test2 **********
+Running valgrind to check for memory leaks.
+valgrind reported errors!
+//---------- input file: short_MSBP-input.text ----------
+shortestpath Meryl.Streep Brad.Pitt
+//---------- end input file ----------
+
+==33392== Memcheck, a memory error detector
+==33392== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==33392== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==33392== Command: ./hw6degrees /comp/15/grading/tests/hw6/data/small-students.text /comp/15/grading/tests/hw6/data/small-tas.text
+==33392== 
+==33392== Invalid read of size 4
+==33392==    at 0x405A70: printShortestPath(std::vector<int, std::allocator<int> >, std::vector<int, std::allocator<int> >, std::vector<Student, std::allocator<Student> >) (main.cpp:369)
+==33392==    by 0x404E3C: findShortestPath(std::string, Graph, std::vector<Student, std::allocator<Student> >) (main.cpp:335)
+==33392==    by 0x40389D: process_input(std::string, Graph, std::vector<Class, std::allocator<Class> >, std::vector<Student, std::allocator<Student> >) (main.cpp:236)
+==33392==    by 0x402200: read_input(Graph, std::vector<Class, std::allocator<Class> >, std::vector<Student, std::allocator<Student> >) (main.cpp:205)
+==33392==    by 0x4018F4: main (main.cpp:70)
+==33392==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==33392== 
+==33392== 
+==33392== Process terminating with default action of signal 11 (SIGSEGV)
+==33392==  Access not within mapped region at address 0x0
+==33392==    at 0x405A70: printShortestPath(std::vector<int, std::allocator<int> >, std::vector<int, std::allocator<int> >, std::vector<Student, std::allocator<Student> >) (main.cpp:369)
+==33392==    by 0x404E3C: findShortestPath(std::string, Graph, std::vector<Student, std::allocator<Student> >) (main.cpp:335)
+==33392==    by 0x40389D: process_input(std::string, Graph, std::vector<Class, std::allocator<Class> >, std::vector<Student, std::allocator<Student> >) (main.cpp:236)
+==33392==    by 0x402200: read_input(Graph, std::vector<Class, std::allocator<Class> >, std::vector<Student, std::allocator<Student> >) (main.cpp:205)
+==33392==    by 0x4018F4: main (main.cpp:70)
+==33392==  If you believe this happened as a result of a stack
+==33392==  overflow in your program's main thread (unlikely but
+==33392==  possible), you can try to increase the size of the
+==33392==  main thread stack using the --main-stacksize= flag.
+==33392==  The main thread stack size used in this run was 10485760.
+==33392== 
+==33392== HEAP SUMMARY:
+==33392==     in use at exit: 8,135 bytes in 166 blocks
+==33392==   total heap usage: 1,370 allocs, 1,204 frees, 82,073 bytes allocated
+==33392== 
+==33392== LEAK SUMMARY:
+==33392==    definitely lost: 0 bytes in 0 blocks
+==33392==    indirectly lost: 0 bytes in 0 blocks
+==33392==      possibly lost: 5,695 bytes in 126 blocks
+==33392==    still reachable: 2,440 bytes in 40 blocks
+==33392==         suppressed: 0 bytes in 0 blocks
+==33392== Rerun with --leak-check=full to see details of leaked memory
+==33392== 
+==33392== For counts of detected and suppressed errors, rerun with: -v
+==33392== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 5 from 5)
+GOT SIGNAL 11 valgrind
+********** Done Valgrind test of hw6degrees-with-small_short_test2 **********
+
+
+********** Testing ./hw6degrees with large_lc_test **********
+# "lc" on WHOTOOKWHAT-ANONYMIZED, TAS-ANONYMIZED (output is sorted)
+large_lc_test Passed!
+********** Done Testing ./hw6degrees with large_lc_test **********
+
+
+********** Testing ./hw6degrees with large_ls_test **********
+# "ls" on WHOTOOKWHAT-ANONYMIZED, TAS-ANONYMIZED (output is sorted)
+large_ls_test Passed!
+********** Done Testing ./hw6degrees with large_ls_test **********
+
+
+********** Testing ./hw6degrees with large_roster_test **********
+# "roster 170S16" on WHOTOOKWHAT-ANONYMIZED, TAS-ANONYMIZED (output is sorted)
+large_roster_test Passed!
+********** Done Testing ./hw6degrees with large_roster_test **********
+
+
+********** Testing ./hw6degrees with large_taed_test **********
+# "taed Lindsey.Davis" on WHOTOOKWHAT-ANONYMIZED, TAS-ANONYMIZED (output is sorted)
+large_taed_test Passed!
+********** Done Testing ./hw6degrees with large_taed_test **********
+
+
+********** Testing ./hw6degrees with large_paths_test2 **********
+# "paths Aisha.Tyler Demi.Moore" on WHOTOOKWHAT-ANONYMIZED, TAS-ANONYMIZED
+large_paths_test2 Passed!
+********** Done Testing ./hw6degrees with large_paths_test2 **********
+
+
+********** Testing ./hw6degrees shortestpath cmd on large-students.text, large-tas.text **********
+shortestpath Anne.Lamott David.Spade
+Test of shortestpath Failed!
+//---------- One possible output for shortestpath(Anne.Lamott,David.Spade)
+Anne.Lamott +- 40F13 -> Rohinton.Mistry +- 160F14 -> Cornelia.Funke +- 40S13 -> Chazz.Palminteri +- 160S14 -> David.Spade
+//---------- End of one possible output for shortestpath(Anne.Lamott,David.Spade)
+
+//---------- Your output for shortestpath(Anne.Lamott,David.Spade) (first 8000 characters): 
+TIMEOUT 240 on ./hw6degrees
+//---------- End of your output for shortestpath(Anne.Lamott,David.Spade)
+
+********** Done Testing ./hw6degrees shortestpath cmd on large-students.text, large-tas.text **********
+
+
+********** Testing ./hw6degrees with med_lc_test **********
+# "lc" on sub-sampled large datasets (output is sorted)
+med_lc_test Passed!
+********** Done Testing ./hw6degrees with med_lc_test **********
+
+
+********** Valgrind test of hw6degrees-with-med_lc_test **********
+Running valgrind to check for memory leaks.
+No memory leaks!
+********** Done Valgrind test of hw6degrees-with-med_lc_test **********
+
+
+********** Testing ./hw6degrees with med_ls_test **********
+# "ls" on sub-sampled large datasets (output is sorted)
+med_ls_test Passed!
+********** Done Testing ./hw6degrees with med_ls_test **********
+
+
+********** Valgrind test of hw6degrees-with-med_ls_test **********
+Running valgrind to check for memory leaks.
+No memory leaks!
+********** Done Valgrind test of hw6degrees-with-med_ls_test **********
+
+
+********** Testing ./hw6degrees with med_taed_test **********
+# "taed Hedy.Lamarr" on sub-sampled large datasets (output is sorted)
+med_taed_test Passed!
+********** Done Testing ./hw6degrees with med_taed_test **********
+
+
+********** Valgrind test of hw6degrees-with-med_taed_test **********
+Running valgrind to check for memory leaks.
+No memory leaks!
+********** Done Valgrind test of hw6degrees-with-med_taed_test **********
+
+
+********** Testing ./hw6degrees with med_roster_test **********
+# "roster 15F13" on sub-sampled large datasets (output is sorted)
+med_roster_test Passed!
+********** Done Testing ./hw6degrees with med_roster_test **********
+
+
+********** Valgrind test of hw6degrees-with-med_roster_test **********
+Running valgrind to check for memory leaks.
+No memory leaks!
+********** Done Valgrind test of hw6degrees-with-med_roster_test **********
+
+
+********** Testing ./hw6degrees with med_paths_test **********
+# "paths Naomie.Harris Robert.Redford" on sub-sampled large datasets (output is sorted)
+med_paths_test Passed!
+********** Done Testing ./hw6degrees with med_paths_test **********
+
+
+********** Valgrind test of hw6degrees-with-med_paths_test **********
+Running valgrind to check for memory leaks.
+valgrind reported errors!
+//---------- input file: paths_NHRR-input.text ----------
+paths Naomie.Harris Robert.Redford
+//---------- end input file ----------
+
+==21956== Memcheck, a memory error detector
+==21956== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==21956== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==21956== Command: ./hw6degrees /comp/15/grading/tests/hw6/data/med-students.text /comp/15/grading/tests/hw6/data/med-tas.text
+==21956== 
+Naomie.Harris +- 11S13 -> Robert.Redford
+TIMEOUT 120 on valgrind
+==21956== 
+==21956== HEAP SUMMARY:
+==21956==     in use at exit: 5,903,842 bytes in 18,915 blocks
+==21956==   total heap usage: 6,527,081 allocs, 6,508,166 frees, 483,640,017 bytes allocated
+==21956== 
+==21956== LEAK SUMMARY:
+==21956==    definitely lost: 0 bytes in 0 blocks
+==21956==    indirectly lost: 0 bytes in 0 blocks
+==21956==      possibly lost: 622,542 bytes in 12,989 blocks
+==21956==    still reachable: 5,281,300 bytes in 5,926 blocks
+==21956==         suppressed: 0 bytes in 0 blocks
+==21956== Rerun with --leak-check=full to see details of leaked memory
+==21956== 
+==21956== For counts of detected and suppressed errors, rerun with: -v
+==21956== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 5 from 5)
+********** Done Valgrind test of hw6degrees-with-med_paths_test **********
+
+
+********** Testing ./hw6degrees with med_paths_test2 **********
+# "paths E.M.Forster Brad.Dexter" on sub-sampled large datasets (output is sorted)
+Test of med_paths_test2 Failed!
+//---------- Expected output for med_paths_test2 (first 8000 characters): 
+E.M.Forster +- 15S13 -> Charles.S.Dutton +- 11F13 -> Bruce.Sterling +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Charles.S.Dutton +- 11F13 -> Maureen.O'Sullivan +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Dr.Trae.Oberbrunner.MD +- 11F13 -> Bruce.Sterling +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Dr.Trae.Oberbrunner.MD +- 11F13 -> Maureen.O'Sullivan +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Dr.Trae.Oberbrunner.MD +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Geraldine.Brooks +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Mrs.Lisbeth.Stehr.PhD +- 170S16 -> Dan.Cragg +- 40S15 -> Louis.Sachar +- 40S16 -> Alexandra.Ripley +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Rudyard.Kipling +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Sarah.Waters +- 15F13 -> Craig.T.Nelson +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Sarah.Waters +- 160F14 -> Christopher.Cazenove +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Sarah.Waters +- 160F14 -> Craig.T.Nelson +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+//---------- End of expected output for med_paths_test2.
+
+//---------- Your output for med_paths_test2 (first 8000 characters): 
+E.M.Forster +- 15S13 -> Charles.S.Dutton +- 11F13 -> Bruce.Sterling +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Charles.S.Dutton +- 11F13 -> Maureen.O'Sullivan +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Dr.Trae.Oberbrunner.MD +- 11F13 -> Bruce.Sterling +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Dr.Trae.Oberbrunner.MD +- 11F13 -> Maureen.O'Sullivan +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Dr.Trae.Oberbrunner.MD +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Geraldine.Brooks +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Mrs.Lisbeth.Stehr.PhD +- 170S16 -> Dan.Cragg +- 40S15 -> Louis.Sachar +- 40S16 -> Alexandra.Ripley +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Rudyard.Kipling +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Sarah.Waters +- 160F14 -> Christopher.Cazenove +- 11F14 -> Brad.Dexter
+E.M.Forster +- 15S13 -> Sarah.Waters +- 160F14 -> Craig.T.Nelson +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+//---------- End of your output for med_paths_test2.
+
+//---------- diff for med_paths_test2 (first 8000 characters): 
+9d8
+< E.M.Forster +- 15S13 -> Sarah.Waters +- 15F13 -> Craig.T.Nelson +- 11S14 -> Ruby.Keeler +- 11F14 -> Brad.Dexter
+//---------- End of diff for med_paths_test2.
+********** Done Testing ./hw6degrees with med_paths_test2 **********
+
+
+********** Valgrind test of hw6degrees-with-med_paths_test2 **********
+Running valgrind to check for memory leaks.
+valgrind reported errors!
+//---------- input file: short_EMFBD-input.text ----------
+shortestpath E.M.Forster Brad.Dexter
+//---------- end input file ----------
+
+==29866== Memcheck, a memory error detector
+==29866== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==29866== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==29866== Command: ./hw6degrees /comp/15/grading/tests/hw6/data/med-students.text /comp/15/grading/tests/hw6/data/med-tas.text
+==29866== 
+TIMEOUT 120 on valgrind
+==29866== 
+==29866== HEAP SUMMARY:
+==29866==     in use at exit: 5,861,508 bytes in 18,736 blocks
+==29866==   total heap usage: 6,173,643 allocs, 6,154,907 frees, 394,694,739 bytes allocated
+==29866== 
+==29866== LEAK SUMMARY:
+==29866==    definitely lost: 0 bytes in 0 blocks
+==29866==    indirectly lost: 0 bytes in 0 blocks
+==29866==      possibly lost: 613,940 bytes in 12,810 blocks
+==29866==    still reachable: 5,247,568 bytes in 5,926 blocks
+==29866==         suppressed: 0 bytes in 0 blocks
+==29866== Rerun with --leak-check=full to see details of leaked memory
+==29866== 
+==29866== For counts of detected and suppressed errors, rerun with: -v
+==29866== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 5 from 5)
+********** Done Valgrind test of hw6degrees-with-med_paths_test2 **********
+
+
+********** Testing ./hw6degrees shortestpath cmd on med-students.text, med-tas.text **********
+shortestpath E.M.Forster Brad.Dexter
+
+Path is valid
+
+shortestpath test Passed!
+********** Done Testing ./hw6degrees shortestpath cmd on med-students.text, med-tas.text **********
+
+
+********** Testing ./hw6degrees with corners_paths_test **********
+# "paths Bob.Smith Bob.Smith" (corner case to test against infinite loop)
+corners_paths_test Passed!
+********** Done Testing ./hw6degrees with corners_paths_test **********
+
+
+********** Testing ./hw6degrees with corners_paths_test2 **********
+# "paths Emily.Smith Dan.Smith" (corner case for testing for a path between disconnected vertices)
+corners_paths_test2 Passed!
+********** Done Testing ./hw6degrees with corners_paths_test2 **********
+
+
+********** Testing ./hw6degrees with corners_paths_test3 **********
+# "paths Frank.Smith Frank.Smith" (corner case to test when a ta taed him/herself)
+corners_paths_test3 Passed!
+********** Done Testing ./hw6degrees with corners_paths_test3 **********
+
+
+********** Testing ./hw6degrees with corners_paths_test4 **********
+# "paths Alice.Smith Alice.Smith" (corner case to test against trivial path)
+corners_paths_test4 Passed!
+********** Done Testing ./hw6degrees with corners_paths_test4 **********
+
+
+*/*/*/*/*/ Some of the tests failed! /*/*/*/*/*
+Tests that failed: 
+valgrind(short_MSBP-input.text), shortestpath(Anne.Lamott,David.Spade), valgrind(paths_NHRR-input.text), med_paths_test2, valgrind(short_EMFBD-input.text), 
+
+"Recording results. This also might take a while. Please be patient..."
+
+
+//@@                       at 2016-04-23 19:05:56
+//@@ ======== SUBMISSION SCREENING END =====
+
+...done preparing for testing.
+provide started by cjenki04 on Sat Apr 23 19:05:56 2016
+your submission has been accepted!
+cleaning up after testing...
+Cleaning up...
+...done cleaning up after testing
+your submission is complete!

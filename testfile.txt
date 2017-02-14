@@ -1,0 +1,4 @@
+ls
+lc
+paths Brad.Pitt Tom.Cruise
+shortestpath Brad.Pitt Tom.Cruise

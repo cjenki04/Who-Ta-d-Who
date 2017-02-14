@@ -1,0 +1,250 @@
+#include <iostream>
+#include "Student.h"
+#include "Class.h"
+#include <fstream>
+#include <vector>
+#include <string>
+#include "Graph.h"
+using namespace std;
+void list_students(vector<Student> students);
+void list_courses(vector<Class> classes);
+void list_courses_tad(Student student);
+void list_class_roster(Class new_class);
+void findPaths(string names, vector<Student> students, vector<Class> classes);
+void findShortestPath(string names, vector<Student> students, vector<Class> classes);
+bool check_name(string name, vector<Student> students);
+bool check_names(string names, vector<Student> students);
+bool check_class(string name, vector<Class> classes);
+void get_data(int argc, char *argv[],vector<Student> &students,
+			  vector<Class> &classes);
+void get_student(vector<Student> &students, string name, string new_class,
+	int argn);
+void get_class(vector<Class> &classes, vector<Student> &students, 
+	string name, string new_class, int argn);
+bool is_student(string name, vector<Student> students);
+bool is_class(string name, vector<Class> classes);
+int class_index(string name, vector<Class> classes);
+int student_index(string name, vector<Student> students);
+void read_input(vector<Class> classes, vector<Student> students );
+void process_input(string command, vector<Class> classes, vector<Student> students );
+void make_graph(Graph graph, vector<Class> classes, vector<Student> students);
+
+int main(int argc, char *argv[]){
+	
+	vector<Student> students;
+	vector<Class> classes;
+	get_data(argc,argv, students, classes);
+	int size = students.size();
+	Graph graph(size);
+	make_graph(graph, classes, students);
+	read_input(classes, students);
+
+	return 0 ;
+}
+
+void get_data(int argc, char *argv[],vector<Student> &students,
+			  vector<Class> &classes)
+{
+	ifstream finput;
+	string fname;
+	string name; 
+	string new_class;
+	for (int i = 1 ; i < argc ; i++){
+		fname = argv[i];
+		finput.open(fname.c_str());
+		if (finput.is_open()){
+			while(finput.good()){
+				getline(finput, name, ':');
+				getline(finput,new_class);
+				get_student(students, name, new_class, i);
+				get_class(classes,students, name, new_class,i);				
+			}
+		}
+		finput.close();
+	}
+}
+void get_class(vector<Class> &classes, vector<Student> &students, 
+	string name, string new_class, int argn){
+
+	int sindex = student_index(name, students);	
+	if (!is_class(new_class, classes)){
+		classes.push_back(Class(new_class));
+	}
+	int cindex = class_index(new_class, classes);
+	if (argn ==1){
+		classes[cindex].add_student(students[sindex]);
+	}
+	else {
+		classes[cindex].add_ta(students[sindex]);
+	}
+
+}
+
+void get_student(vector<Student> &students, string name, string new_class,
+	int argn){
+	if (!is_student(name, students)){
+		students.push_back(Student(name));
+		}
+	int sindex = student_index(name, students);			
+	if (argn ==1){
+		students[sindex].add_taken_class(new_class);
+	}
+	else{
+		students[sindex].add_tad_class(new_class);
+	}
+}
+bool is_student(string name, vector<Student> students){
+	int size = students.size();
+	for (int i = 0 ; i < size ; i++){
+		if (name == students[i].get_name()){
+			return true;
+		}
+	}
+		return false;
+}
+bool is_class(string name, vector<Class> classes){
+	int size = classes.size();
+	for (int i = 0 ; i < size ; i++){
+		if (name == classes[i].get_name()){
+			return true;
+		}
+	}
+		return false;
+}
+int class_index(string name, vector<Class> classes){
+	int size = classes.size();
+	int index = -1;
+	for (int i = 0 ; i < size; i++){
+		if (name == classes[i].get_name()){
+			index = i;
+		}
+	}
+	return index; 
+}
+int student_index(string name, vector<Student> students){
+	int size = students.size();
+	int index = -1;
+	for (int i = 0 ; i < size ; i++){
+		if (name == students[i].get_name()){
+			index = i;
+		}
+	}
+	return index; 
+}
+void list_courses(vector<Class> classes){
+	int size = classes.size();
+	for (int i = 0 ; i < size ; i++){
+		cout << classes[i].get_name() << endl;
+	}
+
+}
+void list_students(vector<Student> students){
+	int size = students.size();
+	for (int i = 0 ; i < size ; i++){
+		cout << students[i].get_name() << endl;
+	}
+}
+void list_courses_tad(Student student){
+	student.print_tad();
+}
+void list_class_roster(Class new_class){
+	new_class.print_class();
+}
+void read_input(vector<Class> classes, vector<Student> students){
+	string command;
+	while (cin.good()){
+		getline(cin, command);
+		process_input(command, classes, students);
+	}
+}
+void process_input(string command,vector<Class> classes, vector<Student> students){
+	if (command == "ls"){
+		list_students(students);
+	}
+	else if (command == "lc"){
+		list_courses(classes);
+	}
+	else if (command.substr(0,4) == "taed"){
+		if (check_name(command.substr(5), students)){
+			list_courses_tad(students[student_index(command.substr(5), students)]);
+		}
+	}
+	else if (command.substr(0,6) == "roster"){
+		if(check_class(command.substr(7), classes)){
+			list_class_roster(classes[class_index(command.substr(7), classes)]);
+		}
+	}
+	else if (command.substr(0,5) == "paths"){
+		if (check_names(command.substr(6),students)){
+			findPaths(command.substr(6), students, classes);
+		}
+	}	
+	else if (command.substr(0,12) == "shortestpath"){
+		if (check_names(command.substr(13),students)){
+			findShortestPath(command.substr(13), students, classes);
+		}
+	}
+	else{
+		cout << "Command not found" << endl;
+	}		
+}
+bool check_names(string names, vector<Student> students){
+	int space = names.find_first_of(' ',0);
+	string name1 = names.substr(0, space);
+	string name2 = names.substr(space+1);
+	if ((is_student(name1, students)) and 
+		(is_student(name2, students))){
+		return true;
+	}
+	cout << "Student not found" << endl;
+	return false;
+}
+bool check_name(string name, vector<Student> students){
+	if (is_student(name, students)){
+		return true;
+	}
+	cout << "Student not found" << endl;
+	return false;
+}
+bool check_class(string name, vector<Class> classes){
+	if(is_class(name, classes)){
+		return true;
+	}
+	cout << "Class not found" << endl;
+	return false;
+}
+
+
+void findPaths(string names, vector<Student> students, vector<Class> classes){
+	vector<string> path;
+	int space = names.find_first_of(' ',0);
+	string name1 = names.substr(0, space);
+	string name2 = names.substr(space+1);
+	cout << findPath(name1, name2, students, classes);
+
+}
+void findShortestPath(string names){
+	string bull = names;
+}
+
+string findPath(string name1, string name2, vector<Student> students, vector<Class> classes){
+
+
+}
+void make_graph(Graph graph, vector<Class> classes, vector<Student> students){
+	int size = students.size();
+	for (int i = 0 ; i < size ; i++ ){
+		for (int j = 0; j < size ; j++){
+			if(i != j){
+				if(students[i].did_ta_for(students[j])){
+					graph.createEdge(i,j);
+				}
+			}
+		}
+	}
+
+}
+
+
+
+

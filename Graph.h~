@@ -1,0 +1,28 @@
+#include<queue>
+using namespace std;
+class Graph
+{
+public:
+        
+
+	Graph();
+	Graph(int nodes);
+        ~Graph();
+
+	bool createEdge(int v1, int v2);
+	bool isAdjacent(int v1, int v2);
+
+	queue<int>* BFS();
+	
+private:
+	bool   markVertex(int v);
+	bool   isMarked(int v);
+	void   unmarkAll();
+    void   allocateArrays();
+
+    int node_count;
+	bool  *markedVertices;
+	bool **adjacencyMatrix;
+};
+
+
